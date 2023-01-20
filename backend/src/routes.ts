@@ -1,9 +1,11 @@
 import { Router } from "express";
 
-import { CreateUserController } from "./controllers/User/CreateUserController";
-import { AuthUserController } from "./controllers/User/AuthUserController";
-import { DetailUserController } from "./controllers/User/DetailUserController";
+import { CreateUserController } from "./controllers/user/CreateUserController";
+import { AuthUserController } from "./controllers/user/AuthUserController";
+import { DetailUserController } from "./controllers/user/DetailUserController";
 import { CreateCategoryController } from "./controllers/category/CreateCategoryController";
+import { ListCategoryController } from "./controllers/category/ListCategoryController";
+import { CreateProductController } from "./controllers/product/CreateProductController";
 
 import { isAuthenticated } from "./middlewares/isAuthenticated";
 
@@ -21,5 +23,9 @@ router.post(
   isAuthenticated,
   new CreateCategoryController().handle
 );
+router.get("/category", isAuthenticated, new ListCategoryController().handle);
+
+//rotas products
+router.post("/product", isAuthenticated, new CreateProductController().handle);
 
 export { router };
