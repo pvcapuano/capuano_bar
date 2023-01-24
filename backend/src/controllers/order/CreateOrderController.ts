@@ -4,7 +4,6 @@ import { CreateOrderService } from "../../services/order/CreateOrderService";
 class CreateOrderController {
   async handle(req: Request, res: Response) {
     const { table, name } = req.body;
-    console.log(req.body);
 
     const createOrderService = new CreateOrderService();
 
