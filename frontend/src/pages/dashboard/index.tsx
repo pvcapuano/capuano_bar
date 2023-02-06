@@ -1,10 +1,15 @@
+import Head from "next/head";
 import { canSSRAuth } from "../../utils/canSSRAuth";
+import { Header } from "../../components/Header";
 
 export default function Dashboard() {
   return (
-    <div>
-      <h1>dashboard</h1>
-    </div>
+    <>
+      <Head>
+        <title>Capuano Bar | Painel </title>
+      </Head>
+      <Header></Header>
+    </>
   );
 }
 
