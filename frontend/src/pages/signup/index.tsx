@@ -5,6 +5,7 @@ import { Button } from "../../components/Button";
 import { Input } from "../../components/Input";
 import { useState, FormEvent, useContext } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
+import { toast } from "react-toastify";
 
 export default function Signup() {
   const { signUp } = useContext(AuthContext);
@@ -18,6 +19,7 @@ export default function Signup() {
     event.preventDefault();
 
     if (name === "" || email === "" || password === "") {
+      toast.error("Preencha todos os campos.");
       return;
     }
 

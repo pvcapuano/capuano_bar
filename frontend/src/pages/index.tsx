@@ -6,6 +6,9 @@ import styles from "../styles/home.module.scss";
 import Link from "next/link";
 
 import { AuthContext } from "../contexts/AuthContext";
+import { toast } from "react-toastify";
+import { GetServerSideProps } from "next";
+import { canSSRGuest } from "../utils/canSSRGuest";
 
 export default function Home() {
   const { signIn } = useContext(AuthContext);
@@ -18,6 +21,7 @@ export default function Home() {
     event.preventDefault();
 
     if (email === "" || password === "") {
+      toast.warning("Preencha todos os campos.");
       return;
     }
 
@@ -67,3 +71,11 @@ export default function Home() {
     </>
   );
 }
+
+export const getServerSideProps = canSSRGuest(async (ctx)=> {
+  return{
+    props: {
+
+    }
+  }
+})
