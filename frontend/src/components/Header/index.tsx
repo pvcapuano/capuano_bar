@@ -11,7 +11,7 @@ export function Header() {
     <header className={styles.headerContainer}>
       <div className={styles.headerContent}>
         <Link href="/dashboard" className={styles.menuItems}>
-          Capuano Bar
+          <img src="logo.png" width={90} height={90} />
         </Link>
 
         <nav className={styles.menuNav}>
